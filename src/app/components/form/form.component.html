@@ -1,0 +1,315 @@
+<br>
+<br>
+<br>
+
+<div class="container" id="forms">
+
+
+
+    <body>
+
+
+        <div class="testbox">
+            <div class="form">
+
+                <p class="top-info">
+                    Please Fill in your Details. Sections marked with (<span class="required">*</span>) are mandatory.
+                </p>
+
+
+                <div class="item">
+                    <p>State of Residency<span class="required">*</span></p>
+                    <select name="stateOfResidency" [(ngModel)]="employee.stateOfResidency" id="state" ngDefaultControl>
+                        <option *ngFor="let state of states" ngDefaultControl>
+                            {{state}} </option>
+
+                    </select>
+
+                </div>
+
+
+                <br>
+                <div class="item">
+                    <h5>Employee Details</h5>
+                    <p>Employee Full Name<span class="required">*</span></p>
+                    <div class="name-item">
+                        <input type="text" name="fullName" placeholder="Full Name" [(ngModel)]="employee.fullName"
+                            required />
+                    </div>
+                </div>
+
+                <div class="item">
+                    <p>Last 4 Digits of Employee Social Security Number(SSN)<span class="required">*</span></p>
+                    <div class="name-item">
+                        <input type="text" name="social" placeholder="XXX-XX-____" [(ngModel)]="employee.social"
+                            required />
+                    </div>
+                </div>
+
+
+                <div class="item">
+                    <p>Home Address<span class="">(Optional)</span></p>
+                    <input type="text" name="address" placeholder="Street address" required />
+                    <div class="city-item">
+                        <input type="text" name="city" placeholder="City" [(ngModel)]="employee.city" />
+                        <input type="text" name="state" placeholder="State" [(ngModel)]="employee.state" required />
+                        <input type="text" name="zip" placeholder="Zip code" [(ngModel)]="employee.zipcode" required />
+                        <input type="text" name="country" placeholder="Country" [(ngModel)]="employee.country"
+                            required />
+
+                    </div>
+                </div>
+
+
+                <br>
+                <div class="item">
+                    <h5>Company Details</h5>
+                    <p>Company Name<span class="required">*</span></p>
+                    <div class="name-item">
+                        <input type="text" name="cname" placeholder="ABC Construction Company"
+                            [(ngModel)]="employee.companyName" required />
+                    </div>
+                </div>
+
+
+
+
+                <br>
+                <div class="question">
+                    <h5>Salary Details</h5>
+                    <p>How is this Employee paid?<span class="required">*</span></p>
+                    <div class="question-answer">
+                        <label><input type="radio" value="salary" name="salary" required /> <span>Salary</span></label>
+                        <label><input type="radio" value="hourly" name="salary" required /> <span>Hourly</span></label>
+                    </div>
+
+
+                    <div class="item">
+                        <p>Salary Paid: <span class="required">*</span></p>
+                        <select name="salaryCycle" id="salaryCycle" ngDefaultControl>
+                            <option *ngFor="let s of salaryCycle">{{s}}</option>
+
+                        </select>
+                    </div>
+
+
+
+
+                </div>
+                <div class="item">
+                    <p>Hourly Rate<span class="required">*</span></p>
+                    <input type="number" name="hourly" [(ngModel)]="employee.hourly" />
+                </div>
+
+                <div class="item">
+                    <p>Number of Hours in a week<span class="required">*</span></p>
+                    <input type="number" name="hours" [(ngModel)]="employee.hours" />
+                </div>
+
+
+
+                <div class="item">
+                    <h6> Pay Period</h6>
+                    <p>Pay From<span class="required">*</span></p>
+                    <div class="name-item">
+                        <input type="date" name="from" placeholder="" [(ngModel)]="employee.payfrom" required />
+                    </div>
+                </div>
+
+                <div class="item">
+
+                    <p>Pay To<span class="required">*</span></p>
+                    <div class="name-item">
+                        <input type="date" name="to" placeholder="" [(ngModel)]="employee.payto" required />
+                    </div>
+                </div>
+
+                <div class="item">
+
+                    <p>Pay Day<span class="required">*</span></p>
+                    <div class="name-item">
+                        <input type="date" name="payday" placeholder="" [(ngModel)]="employee.payday" required />
+                    </div>
+                </div>
+
+
+                <br>
+                <div class="item">
+                    <h5>Check Number</h5>
+
+                    <p><span class="required"></span></p>
+                    <div class="name-item">
+                        <input type="number" name="payday" placeholder="" [(ngModel)]="employee.checkNumber" required />
+                    </div>
+                </div>
+
+
+
+                <!-- 
+                <div class="item">
+                    <p>Email<span class="required">*</span></p>
+                    <input type="text" name="name" required />
+                </div>
+                <div class="item">
+                    <p>Phone</p>
+                    <input type="text" name="name" />
+                </div> -->
+
+
+                <br>
+
+
+                <div class="btn-block">
+                    <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Pay Stub Preview
+                    </button>
+                </div>
+
+
+
+                <br>
+
+
+
+                <!-- Modal -->
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Pay Stub Preview</h5>
+
+                            </div>
+                            <div class="modal-body">
+
+
+
+                                <div id="gtable" #gtable>
+
+
+                                    <table class=" table table-borderless" id="gTab">
+
+                                        <thead class="bg-primary text-white">
+                                            <tr>
+                                                <th scope="col">Employee Name</th>
+                                                <th scope="col">SSN</th>
+                                                <th scope="col">Check No.</th>
+                                                <th scope="col">Pay Period</th>
+                                                <th scope="col">Pay Date</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>{{employee.fullName}}</th>
+                                                <td>XXX-XX-{{employee.social}}</td>
+                                                <td>{{employee.checkNumber}}</td>
+                                                <td>{{employee.payfrom | date: 'shortDate'}} - {{employee.payto | date:
+                                                    'shortDate'}}</td>
+                                                <td>{{employee.payday | date: 'shortDate'}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class=" table table-borderless">
+
+                                        <thead class="bg-primary text-white">
+                                            <tr>
+                                                <th scope="col">Earnings</th>
+                                                <th scope="col">Rate</th>
+                                                <th scope="col">Hours</th>
+                                                <th scope="col">Current</th>
+                                                <th scope="col">Dedcuctions</th>
+                                                <th scope="col">Current</th>
+                                                <th scope="col">Year to Date</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>{{employee.fullName}}</th>
+                                                <td>{{employee.hourly | number: '1.2-2'}}</td>
+                                                <td> {{employee.hours | number: '1.2-2'}}</td>
+                                                <td>{{employee.hourly * employee.hours | number: '1.2-2'}}</td>
+                                                <th>Federal Tax</th>
+                                                <td>{{(employee.hourly * employee.hours * 10)/100 | number: '1.2-2' }}
+                                                </td>
+                                                <th>112.00</th>
+
+
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Social Security</th>
+                                                <td>{{(employee.hourly * employee.hours * 10)/100 | number: '1.2-2' }}
+                                                </td>
+                                                <th>112.00</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Medicare</th>
+                                                <td>{{(employee.hourly * employee.hours * 10)/100 | number: '1.2-2' }}
+                                                </td>
+                                                <th>112.00</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <table class=" table table-borderless">
+
+                                        <thead class="bg-primary text-white">
+                                            <tr>
+                                                <th scope="col"> YTD Gross</th>
+                                                <th scope="col">YTD Dedcuctions</th>
+                                                <th scope="col">YTD Net Pay</th>
+                                                <th scope="col">Current Total</th>
+                                                <th scope="col">Current Dedcuctions</th>
+                                                <th scope="col">Net Pay</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>22,400</td>
+                                                <td>22,400</td>
+                                                <td>22,400</td>
+                                                <td>22,400</td>
+                                                <td>22,400</td>
+                                                <td>2,400</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <div class="btn-block">
+                                    <button type="submit" (click)="generateStub()">Generate Stub</button>
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </body>
+
+</div>
