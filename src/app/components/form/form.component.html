@@ -49,7 +49,8 @@
 
                 <div class="item">
                     <p>Home Address<span class="">(Optional)</span></p>
-                    <input type="text" name="address" placeholder="Street address" required />
+                    <input type="text" name="address" placeholder="Street address" [(ngModel)]="employee.streetAddress"
+                        required />
                     <div class="city-item">
                         <input type="text" name="city" placeholder="City" [(ngModel)]="employee.city" />
                         <input type="text" name="state" placeholder="State" [(ngModel)]="employee.state" required />
@@ -187,7 +188,11 @@
 
                                 <div id="gtable" #gtable>
 
+                                    <b>{{employee.companyName}}</b> <br>
+                                    {{employee.streetAddress}} <br>
+                                    {{employee.city}}, {{employee.state}} {{employee.zipcode}} {{employee.country}}
 
+                                    <h6 class="earnings">Earnings Statement</h6>
                                     <table class=" table table-borderless" id="gTab">
 
                                         <thead class="bg-primary text-white">
@@ -228,14 +233,15 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th>{{employee.fullName}}</th>
+                                                <th>Regular Earning</th>
                                                 <td>{{employee.hourly | number: '1.2-2'}}</td>
                                                 <td> {{employee.hours | number: '1.2-2'}}</td>
                                                 <td>{{employee.hourly * employee.hours | number: '1.2-2'}}</td>
                                                 <th>Federal Tax</th>
-                                                <td>{{(employee.hourly * employee.hours * 10)/100 | number: '1.2-2' }}
+                                                <td>{{(employee.hourly * employee.hours * 9.8433)/100 | number: '1.2-2'
+                                                    }}
                                                 </td>
-                                                <th>112.00</th>
+                                                <th>2,362.40</th>
 
 
                                             </tr>
@@ -245,9 +251,9 @@
                                                 <th></th>
                                                 <th></th>
                                                 <th>Social Security</th>
-                                                <td>{{(employee.hourly * employee.hours * 10)/100 | number: '1.2-2' }}
+                                                <td>{{(employee.hourly * employee.hours * 6.2)/100 | number: '1.2-2' }}
                                                 </td>
-                                                <th>112.00</th>
+                                                <th>1,488.00</th>
                                             </tr>
 
                                             <tr>
@@ -256,9 +262,9 @@
                                                 <th></th>
                                                 <th></th>
                                                 <th>Medicare</th>
-                                                <td>{{(employee.hourly * employee.hours * 10)/100 | number: '1.2-2' }}
+                                                <td>{{(employee.hourly * employee.hours * 1.45)/100 | number: '1.2-2' }}
                                                 </td>
-                                                <th>112.00</th>
+                                                <th>348.00</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -279,12 +285,12 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>22,400</td>
-                                                <td>22,400</td>
-                                                <td>22,400</td>
-                                                <td>22,400</td>
-                                                <td>22,400</td>
-                                                <td>2,400</td>
+                                                <td>$24,000.00</td>
+                                                <td>$4,198.40</td>
+                                                <td>$19,801.60</td>
+                                                <td>$1,200.00</td>
+                                                <td>$209.92</td>
+                                                <td>$990.08</td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -43,7 +43,7 @@ export class FormComponent implements OnInit {
         const imgProps = pdf.getImageProperties(imgData);
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.addImage(imgData, 'PNG', 8, 8, pdfWidth - 18, pdfHeight);
         pdf.save(this.employee.fullName + '.pdf');
       });
 
